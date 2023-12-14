@@ -1,32 +1,32 @@
-#!/bin/python3.10
+#!/usr/bin/env python3
 
 import argparse
 import os
-import sys
 import json
-from splusdata import splusdata as sd
+from splusdata import splusdata
 import pandas as pd
+import multiprocessing as mp
 
 
-def get_args():
+def load_args():
     """Parse command line arguments."""
     parser = argparse.ArgumentParser(description=" ".join([
-        'Calculate the transmission curve or a given filtre.',
-        'Estimate the central lambda from the FWHM of that filter.']))
-    parser.add_argument('--work_dir', type=str, help='Working directory. Default: current directory.',
+        'Get S-PLUS DR4 photometry.']))
+    parser.add_argument('--work_dir', type=str,
+                        help='Working directory. Default: current directory.',
                         default=os.getcwd())
-    parser.add_argument('--fields_list', type=str, help='List of fields to get the photometry.',
+    parser.add_argument('--fields_list', type=str,
+                        help='List of fields to get the photometry.',
                         default='DR4_pointings.csv')
-
-    # if len(sys.argv) <= 1:
-    #     parser.print_help()
-    #     sys.exit(0)
+    parser.add_argument('--ncores', type=int,
+                        help='Number of cores to use. Default: 1.',
+                        default=1)
 
     args = parser.parse_args()
     return args
 
 
-def get_dr4_photometry(field, sfilter='r', mode='dual_auto'):
+def get_dr4_photometry(field, sfilter='r', mode='dual_auto', save=True, output='output.csv'):
     """
     Get the photometry of a given field and filter from the DR4.
     Parameters
@@ -44,11 +44,11 @@ def get_dr4_photometry(field, sfilter='r', mode='dual_auto'):
     """
     user, pswd = get_user_credentials()
     try:
-        conn = sd.Core(user, pswd)
+        conn = splusdata.Core(user, pswd)
     except Exception as e:
         print(e)
         print('Error connecting to the database. Using anonymous connection.')
-        conn = sd.Core()
+        conn = splusdata.Core()
 
     mode = mode.split('_')
     if mode[0] in 'dual':
@@ -64,13 +64,19 @@ def get_dr4_photometry(field, sfilter='r', mode='dual_auto'):
         print(e)
         print(f'Error querying the database for {field} in {sfilter} filter.')
         data = pd.DataFrame()
-        import pdb
-        pdb.set_trace()
 
     if data is None:
-        import pdb
-        pdb.set_trace()
-    return data
+        print(f'No data for {field} in {sfilter} filter.')
+    else:
+        if save:
+            if len(data) > 0:
+                try:
+                    data.write(output, format='csv', overwrite=True)
+                    print(f"{output} successfully saved.")
+                except Exception as e:
+                    print(e)
+                    print(f'Error saving {output}')
+    return
 
 
 def get_user_credentials():
@@ -96,7 +102,20 @@ def get_user_credentials():
     return user, pswd
 
 
-def main_run(fields, filters, workdir='./', modes=['dual_auto'], save=True):
+def process_field(args):
+    field, mode, workdir, filters, save = args
+    for f in filters:
+        output = os.path.join(workdir, mode, f'{field}_{f}.csv')
+        if os.path.exists(output):
+            print(f'{output} already exists.')
+            continue
+        else:
+            print(f'Getting {field} in {f} filter.')
+            get_dr4_photometry(
+                field, sfilter=f, mode=mode, save=save, output=output)
+
+
+def main_run(fields, filters, workdir='./', modes=['dual_auto'], save=True, ncores=1):
     """
     Get the photometry of a list of fields and filters from the DR4.
     Parameters
@@ -116,36 +135,24 @@ def main_run(fields, filters, workdir='./', modes=['dual_auto'], save=True):
         if not os.path.exists(os.path.join(workdir, mode)):
             os.makedirs(os.path.join(workdir, mode))
 
-        for field in fields['Field']:
-            for f in filters:
-                output = os.path.join(workdir, mode, f'{field}_{f}.csv')
-                if os.path.exists(output):
-                    print(f'{output} already exists.')
-                    continue
-                else:
-                    print(f'Getting {field} in {f} filter.')
-                    df = get_dr4_photometry(field, sfilter=f, mode=mode)
-                    if save:
-                        if df is None:
-                            print(f'No data for {field} in {f} filter.')
-                            import pdb
-                            pdb.set_trace()
-                        if len(df) > 0:
-                            try:
-                                df.write(output, format='csv', overwrite=True)
-                                print(f"{output} successfully saved.")
-                            except Exception as e:
-                                print(e)
-                                print(f'Error saving {output}')
+    pool = mp.Pool(processes=ncores)
+    field_args = [(field, mode, workdir, filters, save)
+                  for field in fields['Field'] for mode in modes]
+    pool.map(process_field, field_args)
+    pool.close()
+    pool.join()
 
 
 if __name__ == '__main__':
-    args = get_args()
-    # fields = pd.read_csv(os.path.join(args.work_dir, args.fields_list))
-    workdir = '/storage/splus/DR4_phot/'
-    fields_list = 'DR4_pointings.csv'
+    args = load_args()
+    workdir = args.work_dir
+    fields_list = args.fields_list
+    ncores = args.ncores
+    import pdb
+    pdb.set_trace()
     fields = pd.read_csv(os.path.join(workdir, fields_list))
     filters = ['u', 'j0378', 'j0395', 'j0410', 'j0430',
                'g', 'j0515', 'r', 'j0660', 'i', 'j0861', 'z']
     modes = ['single_auto', 'dual_auto', 'dual_PStotal', 'psf_psf']
-    main_run(fields, filters, workdir=workdir, modes=modes, save=True)
+    main_run(fields, filters, workdir=workdir,
+             modes=modes, save=True, ncores=ncores)
