@@ -81,8 +81,8 @@ def plot_photometry(workdir, modes, filters, args):
                'j0410': 'b', 'j0430': 'dodgerblue',  'j0515': 'lime',
                'g': 'turquoise', 'r': 'limegreen', 'j0660': 'y',
                'i': 'darkorange', 'j0861': 'orangered', 'z': 'darkred'}
-    mode_names = {'dual_auto': 'Dual', 'dual_PStotal': 'PStotal',
-                  'single_auto': 'Single', 'psf_psf': 'PSF'}
+    mode_names = {'dual_auto': 'Dual auto', 'dual_PStotal': 'PStotal',
+                  'single_auto': 'Single auto', 'psf_psf': 'PSF'}
 
     fig, ax = plt.subplots(12, 4, figsize=(10, 12))
     ax = ax.ravel()
@@ -167,9 +167,10 @@ def plot_photometry(workdir, modes, filters, args):
                            labelpad=10, fontsize=12)
             ax2.set_yticklabels(ax2.get_yticklabels(), visible=False)
             ax2.set_yticks([])
-            ax[i].set_xlim(10.1, 23)
+            ax[i].set_xlim(10.1, 24)
             ax[i].set_xticks(xticks)
             ax[i].set_ylim(-0.02, 0.51)
+            ax[i].set_yticks([0, 0.1, 0.2, 0.3, 0.4])
         else:
             ax[i].set_xlim(xlims)
             ax[i].set_ylim(ylims)
