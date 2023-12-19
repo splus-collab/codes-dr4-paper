@@ -1,273 +1,315 @@
 {
     "authors": {
+        "Lomelí-Núñez, L.": {
+            "fullname": "Lomelí-Núñez, Luis",
+            "position": 99,
+            "institutions": ["obnat"],
+            "orcid": "",
+            "acknowledgements": ""
+        },
+        "Pereira, E." : {
+            "fullname": "Pereira, Eduardo",
+            "position": 16,
+            "institutions": ["obnat"],
+            "orcid": "",
+            "acknowledgements": ""
+        },
+        "Cortesi, A.": {
+            "fullname": "Cortesi, Ariana",
+            "position": 99,
+            "institutions": ["ov"],
+            "orcid": "",
+            "acknowledgements": ""
+        },
+        "Bom, C. R.": {
+            "fullname": "Bom, Clecio R.",
+            "position": 99,
+            "institutions": ["cbpf", "cfet"],
+            "orcid": "",
+            "acknowledgements": ""
+        },
         "Lösch, E.": {
-            "fullname": "Elismar Lösch",
+            "fullname": "Lösch, Elismar",
             "position": 99,
             "institutions": ["iag"],
             "orcid": "",
             "acknowledgements": ""
         },
-        "Julia Mello": {
-            "fullname": "Julia Mello",
+        "Mello, J.": {
+            "fullname": "Mello, Julia",
             "position": 99,
             "institutions": ["iag"],
             "orcid": "",
             "acknowledgements": ""
         },
-        "Pierre Augusto Re Martho": {
-            "fullname": "Pierre Augusto Re Martho",
-            "position": 99,
+        "Re Martho, P. A.": {
+            "fullname": "Re Martho, Pierre Augusto",
+            "position": 25,
             "institutions": ["iag"],
             "orcid": "",
             "acknowledgements": ""
         },
-        "Raquel Ruiz Valença": {
-            "fullname": "Raquel Ruiz Valença",
+        "Placco, V. M.": {
+            "fullname": "Placco, Vinicius M.",
             "position": 99,
+            "institutions": ["noirlab"],
+            "orcid": "0000-0003-4479-1265",
+            "acknowledgements": ""
+        },
+        "Valença, R. R.": {
+            "fullname": "Valença, Raquel Ruiz",
+            "position": 24,
             "institutions": ["iag"],
             "orcid": "",
             "acknowledgements": ""
         },
-        "Luna Espinosa": {
-            "fullname": "Luna Espinosa",
-            "position": 99,
+        "Espinosa, L.": {
+            "fullname": "Espinosa, Luna",
+            "position": 13,
             "institutions": ["iag"],
             "orcid": "",
             "acknowledgements": ""
         },
-        "Vincenzo Sivero Ferreira Alberice": {
-            "fullname": "Vincenzo Sivero Ferreira Alberice",
+        "Ferreira Alberice, V. S.": {
+            "fullname": "Ferreira Alberice, Vincenzo Sivero",
             "position": 99,
             "institutions": ["iag", "mackenzie"],
             "orcid": "",
             "acknowledgements": ""
         },
-        "André Santos": {
-            "fullname": "André Santos",
+        "Santos, A.": {
+            "fullname": "Santos, André",
             "position": 99,
             "institutions": ["cbpf"],
             "orcid": "",
             "acknowledgements": ""
         },
-        "A.V. Smith Castelli": {
-            "fullname": "Analía V. Smith Castelli",
-            "position": 99,
+        "Smith Castelli, A. V.": {
+            "fullname": "Smith Castelli, Analia V.",
+            "position": 19,
             "institutions": ["ialp", "fcaglp"],
             "orcid": "",
             "acknowledgements": ""
         },
-        "M. J. Sartori": {
-            "fullname": "Marília J. Sartori",
-            "position": 9,
+        "Sartori, M. J.": {
+            "fullname": "Sartori, Marilia J.",
+            "position": 8,
             "institutions": ["iag"],
             "orcid": "",
             "acknowledgements": ""
         },
-        "Thaís Silva": {
-            "fullname": "Thaís Silva",
-            "position": 99,
+        "Santos-Silva, T.": {
+            "fullname": "Santos-Silva, Thaís",
+            "position": 18,
             "institutions": ["iag"],
             "orcid": "",
             "acknowledgements": ""
         },
-        "Liana Li": {
-            "fullname": "Liana Li",
+        "Lopes de Oliveira, R.": {
+            "fullname": "Lopes de Oliveira, Raimundo",
             "position": 99,
+            "institutions": ["dfufs", "obnat"],
+            "orcid": "",
+            "acknowledgements": ""
+        },
+        "Li, L.": {
+            "fullname": "Li, Liana",
+            "position": 12,
             "institutions": ["iag"],
             "orcid": "",
             "acknowledgements": ""
         },
         "Hartmann, E. A.": {
-            "fullname": "Eduardo A. Hartmann",
-            "position": 7,
+            "fullname": "Hartmann, Eduardo A.",
+            "position": 11,
             "institutions": ["iac"],
             "orcid": "0000-0002-2527-8223",
             "acknowledgements": ""
         },
-        "Javier Alonso-García": {
-            "fullname": "Javier Alonso-García",
+        "Alonso-García, J.": {
+            "fullname": "Alonso-García, Javier",
             "position": 6,
             "institutions": ["citeva", "mia"],
             "orcid": "",
             "acknowledgements": "J.A.-G. acknowledges support from Fondecyt Regular 1201490 and from ANID – Millennium Science Initiative Program – ICN12_009 awarded to the Millennium Institute of Astrophysics MAS."
         },
-        "Felipe Navarete": {
-            "fullname": "Felipe Navarete",
+        "Navarete, F.": {
+            "fullname": "Navarete, Felipe",
             "position": 99,
             "institutions": ["soar"],
             "orcid": "0000-0002-0284-0578",
             "acknowledgements": ""
         },
-        "Cassio L. Barbosa": {
-            "fullname": "Cassio L. Barbosa",
-            "position": 99,
+        "Barbosa, C. L.": {
+            "fullname": "Barbosa, Cassio L.",
+            "position": 21,
             "institutions": ["cufei"],
             "orcid": "0000-0002-4922-0552",
             "acknowledgements": ""
         },
-        "G.B. Oliveira Schwarz": {
-            "fullname": "Gustavo B. Oliveira Schwarz",
+        "Oliveira Schwarz, G. B.": {
+            "fullname": "Oliveira Schwarz, Gustavo B.",
             "position": 3,
             "institutions": ["mackenzie", "iag"],
             "orcid": "",
             "acknowledgements": ""
         },
-        "L. Nakazono": {
-            "fullname": "Lilianne Nakazono",
+        "Nakazono, L.": {
+            "fullname": "Nakazono, Lilianne",
             "position": 5,
             "institutions": ["iag", "UniWashington"],
             "orcid": "0000-0001-6480-1155",
             "acknowledgements": "L. N. acknowledges the support from FAPESP (grants 2019/01312-2 and 2021/12744-0)"
         },
-        "G. Jacob Perin": {
-            "fullname": "G. Jacob Perin",
+        "Jacob Perin, G.": {
+            "fullname": "Jacob Perin, G.",
             "position": 99,
             "institutions": ["ime"],
             "orcid": "",
             "acknowledgements": ""
         },
-        "G. F. Bolutavicius": {
-            "fullname": "Guilherme F. Bolutavicius",
-            "position": 99,
+        "Bolutavicius, G. F.": {
+            "fullname": "Bolutavicius, Guilherme F.",
+            "position": 9,
             "institutions": ["iag"],
             "orcid": "0000-0001-7057-9685",
             "acknowledgements": ""
         },
-        "F. Almeida-Fernandes": {
-            "fullname": "Felipe Almeida-Fernandes",
+        "Almeida-Fernandes, F.": {
+            "fullname": "Almeida-Fernandes, Felipe",
             "position": 2,
             "institutions": ["iag"],
             "orcid": "0000-0002-8048-8717",
             "acknowledgements": ""
         },
-        "E. V. R. Lima": {
-            "fullname": "Erik V. R. Lima",
+        "Lima, E. V. R.": {
+            "fullname": "Lima, Erik V. R.",
             "position": 4,
             "institutions": ["iag"],
             "orcid": "0000-0002-6268-8600",
             "acknowledgements": ""
         },
-        "G. Fabiano de Souza": {
-            "fullname": "Gabriel Fabiano de Souza",
-            "position": 99,
+        "Fabiano de Souza, G.": {
+            "fullname": "Fabiano de Souza, Gabriel",
+            "position": 10,
             "institutions": ["iag"],
             "orcid": "0000-0003-2426-8792",
             "acknowledgements": ""
         },
-        "M. Rubet": {
-            "fullname": "Mariana Rubet",
+        "Rubet, M.": {
+            "fullname": "Rubet, Mariana",
             "position": 99,
             "institutions": ["ov"],
             "orcid": "0000-0001-9439-3121",
             "acknowledgements": ""
         },
-        "Jaque Arancibia M.": {
-            "fullname": "Marcelo Jaque Arancibia",
+        "Jaque Arancibia, M.": {
+            "fullname": "Jaque Arancibia, Marcelo",
             "position": 99,
             "institutions": ["imipuls", "dauls"],
             "orcid": "0000-0002-8086-5746",
             "acknowledgements": ""
         },
-        "M. A. Fonseca-Faria": {
-            "fullname": "Marcos A. Fonseca-Faria",
-            "position": 8,
+        "Fonseca-Faria, M. A.": {
+            "fullname": "Fonseca-Faria, Marcos A.",
+            "position": 7,
             "institutions": ["lna"],
             "orcid": "0000-0002-7865-3971",
             "acknowledgements": ""
         },
         "Cubillos Palma, B.": {
-            "fullname": "Bárbara Cubillos Palma",
+            "fullname": "Cubillos Palma, Barbara",
             "position": 99,
             "institutions": ["dauls"],
             "orcid": "/0009-0007-0020-0976",
             "acknowledgements": ""
         },
-        "Lacerda E. A. D.": {
-            "fullname": "Eduardo A. D. Lacerda",
-            "position": 99,
+        "Lacerda, E. A. D.": {
+            "fullname": "Lacerda, Eduardo A. D.",
+            "position": 20,
             "institutions": ["iag"],
-            "orcid": "",
+            "orcid": "0000-0001-7231-7953",
             "acknowledgements": ""
         },
-        "Ciria Lima-Dias": {
-            "fullname": "Ciria Lima-Dias",
+        "Lima-Dias, C.": {
+            "fullname": "Lima-Dias, Ciria",
             "position": 99,
             "institutions": ["imipuls"],
             "orcid": "0009-0006-0373-8168",
             "acknowledgements": ""
         },
-        "Luiz Figueiredo, André": {
-            "fullname": "André Luiz Figueiredo",
+        "Luiz Figueiredo, A.": {
+            "fullname": "Luiz Figueiredo, André",
             "position": 99,
             "institutions": ["iag"],
             "orcid": "0009-0007-1625-8937",
             "acknowledgements": ""
         },
         "Carvalho, M. S.": {
-            "fullname": "Maiara S. Carvalho",
+            "fullname": "Carvalho, Maiara S.",
             "position": 99,
             "institutions": ["ufsc"],
             "orcid": "0009-0008-9042-4478",
             "acknowledgements": ""
         },
-        "L. A. Gutiérrez-Soto": {
-            "fullname": "Luis A. Gutiérrez-Soto",
-            "position": 99,
+        "Gutiérrez-Soto, L. A.": {
+            "fullname": "Gutiérrez-Soto, Luis A.",
+            "position": 17,
             "institutions": ["ialp"],
             "orcid": "0000-0002-9891-8017",
             "acknowledgements": ""
         },
-        "Hélio D. Perottoni": {
-            "fullname": "Hélio D. Perottoni",
-            "position": 99,
+        "Perottoni, H. D.": {
+            "fullname": "Perottoni, Hélio D.",
+            "position": 22,
             "institutions": ["ncac"],
             "orcid": " 0000-0002-0537-4146",
             "acknowledgements": ""
         },
-        "C. E. Ferreira Lopes": {
-            "fullname": "Carlos E. Ferreira Lopes",
-            "position": 99,
+        "Ferreira Lopes, C. E.": {
+            "fullname": "Ferreira Lopes, Carlos E.",
+            "position": 23,
             "institutions": ["iacp", "mia"],
             "orcid": "",
             "acknowledgements": "CEFL thanks for the support of ANID's Millennium Science Initiative through grant ICN12_12009, awarded to the Millennium Institute of Astrophysics (MAS), and ANID/FONDECYT Regular grant 1231637."
         },
         "Herpich, F. R.": {
-            "fullname": "Fabio R. Herpich",
+            "fullname": "Herpich, Fabio R.",
             "position": 1,
             "institutions": ["ioacam"],
             "orcid": "0000-0001-7907-7884",
             "acknowledgements": "F.R.H. acknowledges support from FAPESP grants 2018/21661-9 and 2021/11345-5."
         },
         "Mendes de Oliveira, C.": {
-            "fullname": "Claudia Mendes de Oliveira",
-            "position": 99,
+            "fullname": "Mendes de Oliveira, Claudia",
+            "position": 102,
             "institutions": ["iag"],
             "orcid": "",
-            "acknowledgements": ""
+            "acknowledgements": "0000-0002-5267-9065"
         },
         "Ribeiro, T.": {
-            "fullname": "Tiago Bergmann",
-            "position": 99,
+            "fullname": "Ribeiro, Tiago",
+            "position": 101,
             "institutions": ["LSST"],
             "orcid": "",
-            "acknowledgements": ""
+            "acknowledgements": "0000-0002-0138-1365"
         },
         "Schoenell, W.": {
-            "fullname": "William Schoenell",
-            "position": 99,
+            "fullname": "Schoenell, William",
+            "position": 13,
             "institutions": ["GMT"],
             "orcid": "",
-            "acknowledgements": ""
+            "acknowledgements": "0000-0002-4064-7234"
         },
         "Kanaan, A": {
-            "fullname": "Antonio Kanaan",
-            "position": 99,
+            "fullname": "Kanaan, Antonio",
+            "position": 14,
             "institutions": ["ufsc"],
             "orcid": "",
-            "acknowledgements": ""
+            "acknowledgements": "0000-0002-2484-7551"
         },
-        " Charles J. Bonatto": {
-            "fullname": "Charles J. Bonatto",
+        "Bonatto, C. J.": {
+            "fullname": "Bonatto, Charles J.",
             "position": 99,
             "institutions": ["ufrgs"],
             "orcid": "0000-0002-4102-1751",
@@ -450,6 +492,38 @@
             "postcode": "22290-180",
             "state": "RJ",
             "country": "BR"
+        },
+        "cfet": {
+            "name": "Centro Federal de Educação Tecnológica Celso Suckow da Fonseca",
+            "addressline": "Rodovia Mário Covas, lote J2, quadra J",
+            "city": "Itaguaí",
+            "postcode": "23810-000",
+            "state": "RJ",
+            "country": "BR"
+        },
+        "obnat": {
+            "name": "Observatório Nacional",
+            "addressline": "Rua General José Cristino, 77, Bairro São Cristóvão",
+            "city": "Rio de Janeiro",
+            "postcode": "20921-400",
+            "state": "RJ",
+            "country": "BR"
+        },
+        "dfufs": {
+            "name": "Departamento de Física, Universidade Federal de Sergipe",
+            "addressline": "Av. Marechal Rondon, s/n",
+            "city": "São Cristóvão",
+            "postcode": "49100-000",
+            "state": "SE",
+            "country": "BR"
+        },
+        "noirlab": {
+            "name": "NFS's National Optical Astronomy Observatory",
+            "addressline": "950 N. Cherry Ave",
+            "city": "Tucson",
+            "postcode": "85719",
+            "state": "AZ",
+            "country": "US"
         },
         "iac": {
             "name": "Instituto de Astrofísica de Canarias",
