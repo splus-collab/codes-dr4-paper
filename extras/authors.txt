@@ -27,20 +27,21 @@
 27 - Bom, Clecio R.
 28 - Bonatto, Charles J.
 29 - Carvalho, Maiara S.
-30 - Cortesi, Ariana
-31 - Cubillos Palma, Barbara
-32 - Ferreira Alberice, Vincenzo Sivero
-33 - Jacob Perin, G.
-34 - Jaque Arancibia, Marcelo
-35 - Lima-Dias, Ciria
-36 - Lomelí-Núñez, Luis
-37 - Lopes de Oliveira, Raimundo
-38 - Luiz Figueiredo, André
-39 - Lösch, Elismar
-40 - Mello, Julia
-41 - Navarete, Felipe
-42 - Placco, Vinicius M.
-43 - Rubet, Mariana
-44 - Santos, André
-45 - Ribeiro, Tiago
-46 - Mendes de Oliveira, Claudia
+30 - Cernic, Vitor
+31 - Cortesi, Ariana
+32 - Cubillos Palma, Barbara
+33 - Ferreira Alberice, Vincenzo Sivero
+34 - Jacob Perin, G.
+35 - Jaque Arancibia, Marcelo
+36 - Lima-Dias, Ciria
+37 - Lomelí-Núñez, Luis
+38 - Lopes de Oliveira, Raimundo
+39 - Luiz Figueiredo, André
+40 - Lösch, Elismar
+41 - Mello, Julia
+42 - Navarete, Felipe
+43 - Placco, Vinicius M.
+44 - Rubet, Mariana
+45 - Santos, André
+46 - Ribeiro, Tiago
+47 - Mendes de Oliveira, Claudia

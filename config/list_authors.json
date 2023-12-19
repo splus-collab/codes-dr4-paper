@@ -67,7 +67,7 @@
             "fullname": "Valença, Raquel Ruiz",
             "position": 24,
             "institutions": ["iag"],
-            "orcid": "",
+            "orcid": "0000-0001-8847-0047",
             "acknowledgements": ""
         },
         "Espinosa, L.": {
@@ -123,7 +123,14 @@
             "fullname": "Li, Liana",
             "position": 12,
             "institutions": ["iag"],
-            "orcid": "",
+            "orcid": "0000-0002-5295-7045",
+            "acknowledgements": ""
+        },
+        "Cernic, V.": {
+            "fullname": "Cernic, Vitor",
+            "position": 99,
+            "institutions": ["iag"],
+            "orcid": "0000-0002-1233-0301",
             "acknowledgements": ""
         },
         "Hartmann, E. A.": {
