@@ -10,21 +10,28 @@ def parse_args():
         description='Create authors.tex file from list_authors.json')
     parser.add_argument('--workdir', type=str, default=os.getcwd(),
                         help='Working directory. Default: current directory')
+    parser.add_argument('--authors', type=str, default='config/list_authors.json',
+                        help='Authors file. Default: config/list_authors.json')
+
     args = parser.parse_args()
     return args
 
 
-if __name__ == '__main__':
-    args = parse_args()
-    os.chdir(args.workdir)
+def get_authors_list(args):
+    """Get authors list from list_authors.json file"""
     authors_json = json.load(
-        open(os.path.join(args.workdir, 'config/list_authors.json'), 'r'))
+        open(os.path.join(args.workdir, args.authors), 'r'))
 
     authors = authors_json['authors']
 
     authors = sorted(authors.items(), key=lambda x: (
         x[1].get('position', 99), x[1]['fullname']))
 
+    return authors_json, authors
+
+
+def prepare_authors_files(args, authors_json, authors):
+    """Prepare authors.txt and authors.tex files"""
     institutions = []
     for author in authors:
         for institution in author[1]['institutions']:
@@ -92,3 +99,17 @@ if __name__ == '__main__':
                      authors_json['institutions'][institution]['country']))
 
     a.close()
+
+
+def main():
+    args = parse_args()
+
+    authors_json, authors = get_authors_list(args)
+
+    prepare_authors_files(args, authors_json, authors)
+
+    return
+
+
+if __name__ == '__main__':
+    main()
