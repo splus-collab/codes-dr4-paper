@@ -1,5 +1,12 @@
 {
     "authors": {
+        "Werle, A.": {
+            "fullname": "Werle, Ariel",
+            "position": 15,
+            "institutions": ["inaf"],
+            "orcid": "0000-0002-4382-8081",
+            "acknowledgements": "A.W. has received funding from the European Research Council (ERC) under the European Union’s Horizon 2020 research and innovation program (grant agreement No. 833824, GASP project)."
+        },
         "Lomelí-Núñez, L.": {
             "fullname": "Lomelí-Núñez, Luis",
             "position": 99,
@@ -284,29 +291,29 @@
             "fullname": "Mendes de Oliveira, Claudia",
             "position": 102,
             "institutions": ["iag"],
-            "orcid": "",
-            "acknowledgements": "0000-0002-5267-9065"
+            "orcid": "0000-0002-5267-9065",
+            "acknowledgements": ""
         },
         "Ribeiro, T.": {
             "fullname": "Ribeiro, Tiago",
             "position": 101,
             "institutions": ["LSST"],
-            "orcid": "",
-            "acknowledgements": "0000-0002-0138-1365"
+            "orcid": "0000-0002-0138-1365",
+            "acknowledgements": ""
         },
         "Schoenell, W.": {
             "fullname": "Schoenell, William",
-            "position": 13,
+            "position": 14,
             "institutions": ["GMT"],
-            "orcid": "",
-            "acknowledgements": "0000-0002-4064-7234"
+            "orcid": "0000-0002-4064-7234",
+            "acknowledgements": ""
         },
         "Kanaan, A": {
             "fullname": "Kanaan, Antonio",
-            "position": 14,
+            "position": 13,
             "institutions": ["ufsc"],
-            "orcid": "",
-            "acknowledgements": "0000-0002-2484-7551"
+            "orcid": "0000-0002-2484-7551",
+            "acknowledgements": ""
         },
         "Bonatto, C. J.": {
             "fullname": "Bonatto, Charles J.",
@@ -422,7 +429,7 @@
             "country": "CL"
         },
         "ioacam": {
-            "name": "Insitute of Astronomy, University of Cambridge",
+            "name": "Cambridge Survey Astronomical Unit (CASU), Insitute of Astronomy, University of Cambridge",
             "addressline": "Madingley Road",
             "city": "Cambridge",
             "postcode": "CB3 0HA",
@@ -524,6 +531,14 @@
             "postcode": "85719",
             "state": "AZ",
             "country": "US"
+        },
+        "inaf": {
+            "name": "INAF - Osservatorio Astronomico di Padova",
+            "addressline": "Vicolo dell'Osservatorio, 5",
+            "city": "Padova",
+            "postcode": "35122",
+            "state": "PD",
+            "country": "IT"
         },
         "iac": {
             "name": "Instituto de Astrofísica de Canarias",

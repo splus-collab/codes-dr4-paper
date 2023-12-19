@@ -11,35 +11,36 @@
 11 - Hartmann, Eduardo A.
 12 - Li, Liana
 13 - Espinosa, Luna
-14 - Schoenell, William
-15 - Kanaan, Antonio
-16 - Pereira, Eduardo
-17 - Gutiérrez-Soto, Luis A.
-18 - Santos-Silva, Thaís
-19 - Smith Castelli, Analia V.
-20 - Lacerda, Eduardo A. D.
-21 - Barbosa, Cassio L.
-22 - Perottoni, Hélio D.
-23 - Ferreira Lopes, Carlos E.
-24 - Valença, Raquel Ruiz
-25 - Re Martho, Pierre Augusto
-26 - Bom, Clecio R.
-27 - Bonatto, Charles J.
-28 - Carvalho, Maiara S.
-29 - Cortesi, Ariana
-30 - Cubillos Palma, Barbara
-31 - Ferreira Alberice, Vincenzo Sivero
-32 - Jacob Perin, G.
-33 - Jaque Arancibia, Marcelo
-34 - Lima-Dias, Ciria
-35 - Lomelí-Núñez, Luis
-36 - Lopes de Oliveira, Raimundo
-37 - Luiz Figueiredo, André
-38 - Lösch, Elismar
-39 - Mello, Julia
-40 - Navarete, Felipe
-41 - Placco, Vinicius M.
-42 - Rubet, Mariana
-43 - Santos, André
-44 - Ribeiro, Tiago
-45 - Mendes de Oliveira, Claudia
+14 - Kanaan, Antonio
+15 - Schoenell, William
+16 - Werle, Ariel
+17 - Pereira, Eduardo
+18 - Gutiérrez-Soto, Luis A.
+19 - Santos-Silva, Thaís
+20 - Smith Castelli, Analia V.
+21 - Lacerda, Eduardo A. D.
+22 - Barbosa, Cassio L.
+23 - Perottoni, Hélio D.
+24 - Ferreira Lopes, Carlos E.
+25 - Valença, Raquel Ruiz
+26 - Re Martho, Pierre Augusto
+27 - Bom, Clecio R.
+28 - Bonatto, Charles J.
+29 - Carvalho, Maiara S.
+30 - Cortesi, Ariana
+31 - Cubillos Palma, Barbara
+32 - Ferreira Alberice, Vincenzo Sivero
+33 - Jacob Perin, G.
+34 - Jaque Arancibia, Marcelo
+35 - Lima-Dias, Ciria
+36 - Lomelí-Núñez, Luis
+37 - Lopes de Oliveira, Raimundo
+38 - Luiz Figueiredo, André
+39 - Lösch, Elismar
+40 - Mello, Julia
+41 - Navarete, Felipe
+42 - Placco, Vinicius M.
+43 - Rubet, Mariana
+44 - Santos, André
+45 - Ribeiro, Tiago
+46 - Mendes de Oliveira, Claudia
