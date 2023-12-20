@@ -33,6 +33,9 @@ def load_args():
                         default=20)
     parser.add_argument('--plot', action='store_true',
                         help='Plot the photometry.')
+    parser.add_argument('--prefix', type=str,
+                        help='Prefix of the csv files. Default: rand10',
+                        default='rand10')
     parser.add_argument('--savefig', action='store_true',
                         help='Save the plot.')
     parser.add_argument('--clobber', action='store_true',
@@ -48,28 +51,33 @@ def load_csv_data(csv_file):
         data = pd.read_csv(csv_file)
     except FileNotFoundError:
         print(f'File {csv_file} not found.')
-        return pd.DataFrame(columns=['RA', 'DEC', 'mag', 'e_mag', 'Field'])
+        return pd.DataFrame(columns=['RA', 'DEC', 'mag', 'e_mag', 'SEX_FLAGS', 'Field'])
+    if not any(['SEX_FLAGS' in col for col in data.columns]):
+        data['SEX_FLAGS'] = [-1]*len(data)
     data['Field'] = [field]*len(data)
-    data.columns = ['RA', 'DEC', 'mag', 'e_mag', 'Field']
+    data.columns = ['RA', 'DEC', 'mag', 'e_mag', 'SEX_FLAGS', 'Field']
 
-    return dd.from_pandas(data, npartitions=1)
+    return data
 
 
 def process_csvfiles(workdir, modes, filters, nprocs, args):
     for mode, f in itertools.product(modes, filters):
-        outputcsv = os.path.join(workdir, f'{mode}/all_{f}.csv')
+        outputcsv = os.path.join(workdir, f'{mode}/{args.prefix}_{f}.csv')
         if os.path.exists(outputcsv) and not args.clobber:
             print(f'File {outputcsv} exists. Skipping.')
             continue
         print(f'Processing mode {mode} and filter {f}...')
-        list_csvs = glob.glob(os.path.join(workdir, mode, f'*_{f}.csv'))
+        nfiles2combine = args.prefix.strip('rand')
+        print(f'Combining {nfiles2combine} files.')
+        list_csvs = glob.glob(os.path.join(
+            workdir, mode, f'*_{f}.csv'))[:int(nfiles2combine)]
 
         pool = mp.Pool(nprocs)
-        ddfs = pool.map(load_csv_data, list_csvs)
+        dfs = pool.map(load_csv_data, list_csvs)
         pool.close()
         pool.join()
 
-        alldf = dd.concat(ddfs, ignore_index=True)
+        alldf = pd.concat(dfs, ignore_index=True)
 
         print(f'Saving file {outputcsv}.')
         alldf.to_csv(outputcsv, index=False)
@@ -89,8 +97,7 @@ def plot_photometry(workdir, modes, filters, args):
     iter_modes_filters = itertools.product(filters, modes)
     for i, (f, m) in enumerate(iter_modes_filters):
         mode_dir = os.path.join(workdir, f'{m}')
-        allcsv = os.path.join(mode_dir, f'all_{f}.csv')
-        print(i, f, m, allcsv)
+        allcsv = os.path.join(mode_dir, f'{args.prefix}_{f}.csv')
         if os.path.exists(allcsv):
             if args.npoints == -1:
                 try:
@@ -117,6 +124,8 @@ def plot_photometry(workdir, modes, filters, args):
 
         mask = (df['mag'] > 10) & (df['mag'] < 30)
         mask &= (df['e_mag'] > 0) & (df['e_mag'] < 10.9)
+        if m in ['dual_auto', 'dual_PStotal', 'single_auto']:
+            mask &= df['SEX_FLAGS'] == 0
         completeness = len(df[mask]) / len(df)
         xlims = [10.1, 26.9]
         ylims = [-0.5, 10.9]
@@ -132,9 +141,9 @@ def plot_photometry(workdir, modes, filters, args):
         mag_intersect = mag_bins['mag'][percentiles[1]][
             mag_bins['e_mag'][percentiles[1]] < 0.3619].max()
 
-        ax[i].scatter(df['mag'], df['e_mag'], s=1, alpha=0.4, color='gray')
-        print(min(df['mag']), max(df['mag']), min(df['e_mag']),
-              max(df['e_mag']))
+        ax[i].scatter(df['mag'], df['e_mag'], s=1, alpha=0.1, color='gray')
+        print(i, f, m, allcsv, min(df['mag']), max(df['mag']), min(
+            df['e_mag']), max(df['e_mag']), sum(mask), len(df))
         ax[i].plot(mag_bins['mag'][percentiles[0]],
                    mag_bins['e_mag'][percentiles[0]],
                    'o-', lw=2, color=colours[f], ms=2)
