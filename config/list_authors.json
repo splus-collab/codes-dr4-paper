@@ -14,12 +14,12 @@
             "orcid": "",
             "acknowledgements": ""
         },
-        "Pereira, E." : {
-            "fullname": "Pereira, Eduardo",
+        "Machado-Pereira, E." : {
+            "fullname": "Machado-Pereira, Eduardo",
             "position": 16,
             "institutions": ["obnat"],
-            "orcid": "",
-            "acknowledgements": ""
+            "orcid": "0000-0001-6987-1531",
+            "acknowledgements": "E. M.-P. acknowledges CAPES (proc. 88887.605761/2021-00)."
         },
         "Cortesi, A.": {
             "fullname": "Cortesi, Ariana",
@@ -42,8 +42,8 @@
             "orcid": "",
             "acknowledgements": ""
         },
-        "Mello, J.": {
-            "fullname": "Mello, Julia",
+        "Oliveira, J. M.": {
+            "fullname": "Oliveira, Julia Mello de",
             "position": 99,
             "institutions": ["iag"],
             "orcid": "",
@@ -61,7 +61,7 @@
             "position": 99,
             "institutions": ["noirlab"],
             "orcid": "0000-0003-4479-1265",
-            "acknowledgements": ""
+            "acknowledgements": "The work of V.M.P. is supported by NOIRLab, which is managed by the Association of Universities for Research in Astronomy (AURA) under a cooperative agreement with the National Science Foundation."
         },
         "Valença, R. R.": {
             "fullname": "Valença, Raquel Ruiz",
@@ -102,7 +102,7 @@
             "fullname": "Sartori, Marilia J.",
             "position": 8,
             "institutions": ["iag"],
-            "orcid": "",
+            "orcid": "0000-0003-2561-0756",
             "acknowledgements": ""
         },
         "Santos-Silva, T.": {
@@ -117,7 +117,7 @@
             "position": 99,
             "institutions": ["dfufs", "obnat"],
             "orcid": "",
-            "acknowledgements": ""
+            "acknowledgements": "RLO acknowledges financial support from the Brazilian institutions CNPq (PQ-312705/2020-4) and FAPESP (\#2020/00457-4)."
         },
         "Li, L.": {
             "fullname": "Li, Liana",
@@ -152,7 +152,7 @@
             "position": 99,
             "institutions": ["soar"],
             "orcid": "0000-0002-0284-0578",
-            "acknowledgements": ""
+            "acknowledgements": "The work of FN is supported by NOIRLab, which is managed by the Association of Universities for Research in Astronomy (AURA) under a cooperative agreement with the National Science Foundation. AFJM is grateful for financial aid from NSERC (Canada)."
         },
         "Barbosa, C. L.": {
             "fullname": "Barbosa, Cassio L.",
@@ -176,11 +176,11 @@
             "acknowledgements": "L. N. acknowledges the support from FAPESP (grants 2019/01312-2 and 2021/12744-0)"
         },
         "Jacob Perin, G.": {
-            "fullname": "Jacob Perin, G.",
+            "fullname": "Jacob Perin, Gabriel",
             "position": 99,
             "institutions": ["ime"],
-            "orcid": "",
-            "acknowledgements": ""
+            "orcid": "0000-0002-5990-7497",
+            "acknowledgements": "G.J.P. acknowledges support from FAPESP (grant 2022/11645-1)."
         },
         "Bolutavicius, G. F.": {
             "fullname": "Bolutavicius, Guilherme F.",
@@ -271,7 +271,7 @@
             "position": 17,
             "institutions": ["ialp"],
             "orcid": "0000-0002-9891-8017",
-            "acknowledgements": ""
+            "acknowledgements": "L.A.G.S. and A.V.S.C. acknowledge financial support from CONICET, Agencia I+D+i (PICT 2019-03299) and Universidad Nacional de La Plata (Argentina)."
         },
         "Perottoni, H. D.": {
             "fullname": "Perottoni, Hélio D.",
@@ -404,10 +404,10 @@
             "country": "BR"
         },
         "ialp": {
-            "name": "Instituto de Astrofísica de La Plata",
+            "name": "Instituto de Astrofísica de La Plata, UNLP-CONICET",
             "addressline": "Paseo del Bosque s/n",
             "city": "La Plata",
-            "postcode": "1900",
+            "postcode": "B1900FWA",
             "state": "Buenos Aires",
             "country": "AR"
         },
@@ -495,7 +495,7 @@
             "name": "Facultad de Ciencias Astronómicas y Geofísicas, Universidad Nacional de La Plata",
             "addressline": "Paseo del Bosque s/n",
             "city": "La Plata",
-            "postcode": "1900",
+            "postcode": "B1900FWA",
             "state": "Buenos Aires",
             "country": "AR"
         },
@@ -532,7 +532,7 @@
             "country": "BR"
         },
         "noirlab": {
-            "name": "NFS's National Optical Astronomy Observatory",
+            "name": "NFS's NOIRLab",
             "addressline": "950 N. Cherry Ave",
             "city": "Tucson",
             "postcode": "85719",
