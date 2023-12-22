@@ -259,7 +259,7 @@ def plot_photometry(args):
                         central_coords.dec.value + 0.5]}
     colourmag_lims = {'x': [-0.52, 0.9], 'y': [21, 12]}
     labelsize = 16
-    ticksizes = 11
+    ticksizes = 14
     maskflags = (dfauto['SEX_FLAGS_r'] <= 3)
     maskflags &= (dfauto['RA'] >= field_lims['x'][0])
     maskflags &= (dfauto['RA'] < field_lims['x'][1])
