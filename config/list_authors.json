@@ -7,6 +7,34 @@
             "orcid": "0000-0002-4382-8081",
             "acknowledgements": "A.W. has received funding from the European Research Council (ERC) under the European Union’s Horizon 2020 research and innovation program (grant agreement No. 833824, GASP project)."
         },
+        "Huaynasi, F. Q.": {
+            "fullname": "Huaynasi, Fredi Quispe",
+            "position": 99,
+            "institutions": ["obnat"],
+            "orcid": "0000-0001-8741-8642",
+            "acknowledgements": "F.Q.H. acknowledges financial support from CNPq Grant 306009/2019-6."
+        },
+        "Roig, F. V.": {
+            "fullname": "Roig, Fernando V.",
+            "position": 99,
+            "institutions": ["obnat"],
+            "orcid": "0000-0001-7059-5116",
+            "acknowledgements": ""
+        },
+        "Ederoclite, A.": {
+            "fullname": "Ederoclite, Alessandro",
+            "position": 99,
+            "institutions": ["cefca"],
+            "orcid": "",
+            "acknowledgements": ""
+        },
+        "Coelho, P." : {
+            "fullname": "Coelho, Paula",
+            "position": 99,
+            "institutions": ["iag"],
+            "orcid": "",
+            "acknowledgements": ""
+        },
         "Lomelí-Núñez, L.": {
             "fullname": "Lomelí-Núñez, Luis",
             "position": 99,
@@ -116,7 +144,7 @@
             "fullname": "Lopes de Oliveira, Raimundo",
             "position": 99,
             "institutions": ["dfufs", "obnat"],
-            "orcid": "",
+            "orcid": "0000-0002-6211-7226",
             "acknowledgements": "RLO acknowledges financial support from the Brazilian institutions CNPq (PQ-312705/2020-4) and FAPESP (\#2020/00457-4)."
         },
         "Li, L.": {
@@ -296,14 +324,14 @@
         },
         "Mendes de Oliveira, C.": {
             "fullname": "Mendes de Oliveira, Claudia",
-            "position": 102,
+            "position": 202,
             "institutions": ["iag"],
             "orcid": "0000-0002-5267-9065",
             "acknowledgements": ""
         },
         "Ribeiro, T.": {
             "fullname": "Ribeiro, Tiago",
-            "position": 101,
+            "position": 201,
             "institutions": ["LSST"],
             "orcid": "0000-0002-0138-1365",
             "acknowledgements": ""
@@ -546,6 +574,14 @@
             "postcode": "35122",
             "state": "PD",
             "country": "IT"
+        },
+        "cefca": {
+            "name": "Centro de Estudios de Física del Cosmos de Aragón (CEFCA)",
+            "addressline": "Plaza de San Juan, 1",
+            "city": "Teruel",
+            "postcode": "44001",
+            "state": "Teruel",
+            "country": "ES"
         },
         "iac": {
             "name": "Instituto de Astrofísica de Canarias",
