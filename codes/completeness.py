@@ -87,21 +87,21 @@ for i,band in enumerate(['u','J0378','J0395','J0410','J0430','g','J0515','r','J0
     # ax_list[i].set_xlabel('R')
     
     if i % 4 == 0:
-        ax_list[i].set_ylabel('completeness')
+        ax_list[i].set_ylabel('completeness', fontsize=22)
     
     if i >= 8:
-        ax_list[i].set_xlabel('r (auto)')
+        ax_list[i].set_xlabel('r (auto)', fontsize=22)
     
-    ax_list[i].text(14.5,0.5,band)
-    ax_list[i].legend(loc='lower left', ncol=1, frameon=False, fontsize=10)
+    ax_list[i].text(14.5,0.5,band, fontsize=18)
+    ax_list[i].legend(loc='lower left', ncol=1, frameon=False, fontsize=14)
     ax_list[i].set_xlim(13.5,23.5)
     ax_list[i].set_ylim(-0.1,1.1)
     ax_list[i].set_xticks(np.arange(14,24,2))
     ax_list[i].set_yticks(np.arange(0,1.1,0.2))
     ax_list[i].grid(ls='--', alpha=0.5)
     ax_list[i].set_axisbelow(True)
-    ax_list[i].tick_params(axis='x', labelsize=12)  # Set x-ticks font size
-    ax_list[i].tick_params(axis='y', labelsize=12)  # Set y-ticks font size
+    ax_list[i].tick_params(axis='x', labelsize=14)  # Set x-ticks font size
+    ax_list[i].tick_params(axis='y', labelsize=14)  # Set y-ticks font size
 
 
 plt.savefig('../plots/completeness.png', dpi=100)
