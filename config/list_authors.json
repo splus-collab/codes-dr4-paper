@@ -145,7 +145,7 @@
             "position": 99,
             "institutions": ["dfufs", "obnat"],
             "orcid": "0000-0002-6211-7226",
-            "acknowledgements": "RLO acknowledges financial support from the Brazilian institutions CNPq (PQ-312705/2020-4) and FAPESP (\#2020/00457-4)."
+            "acknowledgements": "RLO acknowledges financial support from the Brazilian institutions CNPq (PQ-312705/2020-4) and FAPESP (\\#2020/00457-4)."
         },
         "Li, L.": {
             "fullname": "Li, Liana",
@@ -301,6 +301,13 @@
             "orcid": "0000-0002-9891-8017",
             "acknowledgements": "L.A.G.S. and A.V.S.C. acknowledge financial support from CONICET, Agencia I+D+i (PICT 2019-03299) and Universidad Nacional de La Plata (Argentina)."
         },
+        "Krabbe, A": {
+            "fullname": "Krabbe, Angela",
+            "position": 99,
+            "institutions": ["iag"],
+            "orcid": "",
+            "acknowledgements": ""
+        },
         "Perottoni, H. D.": {
             "fullname": "Perottoni, Hélio D.",
             "position": 22,
@@ -321,6 +328,55 @@
             "institutions": ["ioacam"],
             "orcid": "0000-0001-7907-7884",
             "acknowledgements": "F.R.H. acknowledges support from FAPESP grants 2018/21661-9 and 2021/11345-5."
+        },
+        "Torres-Flores, S.": {
+            "fullname": "Torres-Flores, Sergio",
+            "position": 101,
+            "institutions": ["dauls"],
+            "orcid": "",
+            "acknowledgements": ""
+        },
+        "Beers, T." : {
+            "fullname": "Beers, Timothy",
+            "position": 102,
+            "institutions": ["jinacee"],
+            "orcid": "",
+            "acknowledgements": "T.C.B. acknowledges partial support for this work from grant PHY 14-30152; Physics Frontier Center/JINA Center for the Evolution of the Elements (JINA-CEE), and OISE-1927130: The International Research Network for Nuclear Astrophysics (IReNA), awarded by the US National Science Foundation."
+        },
+        "Alvarez-Candal, A.": {
+            "fullname": "Alvarez-Candal, Alvaro",
+            "position": 103,
+            "institutions": ["obnat"],
+            "orcid": "",
+            "acknowledgements": ""
+        },
+        "Stavros, A." : {
+            "fullname": "Stavros, Akras",
+            "position": 104,
+            "institutions": ["iaasanoa"],
+            "orcid": "0000-0003-1351-7204",
+            "acknowledgements": ""
+        },
+        "Panda, S.": {
+            "fullname": "Panda, Swayamtrupa",
+            "position": 105,
+            "institutions": ["lna"],
+            "orcid": "",
+            "acknowledgements": ""
+        },
+        "Limberg, G.": {
+            "fullname": "Limberg, Guilherme",
+            "position": 106,
+            "institutions": ["iag"],
+            "orcid": "",
+            "acknowledgements": ""
+        },
+        "Pardo Montaguth, G. D.": {
+            "fullname": "Pardo Montaguth, Gissel Dayana",
+            "position": 107,
+            "institutions": ["dauls"],
+            "orcid": "",
+            "acknowledgements": ""
         },
         "Mendes de Oliveira, C.": {
             "fullname": "Mendes de Oliveira, Claudia",
@@ -582,6 +638,22 @@
             "postcode": "44001",
             "state": "Teruel",
             "country": "ES"
+        },
+        "jinacee": {
+            "name": "Department of Physics and Astronomy and JINA Center for the Evolution of the Elements (JINA-CEE)",
+            "addressline": "225 Nieuwland Science Hall",
+            "city": "Notre Dame",
+            "postcode": "46556",
+            "state": "IN",
+            "country": "US"
+        },
+        "iaasanoa": {
+            "name": "Institute for Astronomy, Astrophysics, Space Applications and Remote Sensing, National Observatory of Athens",
+            "addressline": "I. Metaxa & Vas. Pavlou",
+            "city": "Palaia Penteli",
+            "postcode": "15236",
+            "state": "Attiki",
+            "country": "GR"
         },
         "iac": {
             "name": "Instituto de Astrofísica de Canarias",

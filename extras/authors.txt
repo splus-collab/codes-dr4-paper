@@ -14,7 +14,7 @@
 14 - Kanaan, Antonio
 15 - Schoenell, William
 16 - Werle, Ariel
-17 - Pereira, Eduardo
+17 - Machado-Pereira, Eduardo
 18 - Gutiérrez-Soto, Luis A.
 19 - Santos-Silva, Thaís
 20 - Smith Castelli, Analia V.
@@ -28,20 +28,32 @@
 28 - Bonatto, Charles J.
 29 - Carvalho, Maiara S.
 30 - Cernic, Vitor
-31 - Cortesi, Ariana
-32 - Cubillos Palma, Barbara
-33 - Ferreira Alberice, Vincenzo Sivero
-34 - Jacob Perin, G.
-35 - Jaque Arancibia, Marcelo
-36 - Lima-Dias, Ciria
-37 - Lomelí-Núñez, Luis
-38 - Lopes de Oliveira, Raimundo
-39 - Luiz Figueiredo, André
-40 - Lösch, Elismar
-41 - Mello, Julia
-42 - Navarete, Felipe
-43 - Placco, Vinicius M.
-44 - Rubet, Mariana
-45 - Santos, André
-46 - Ribeiro, Tiago
-47 - Mendes de Oliveira, Claudia
+31 - Coelho, Paula
+32 - Cortesi, Ariana
+33 - Cubillos Palma, Barbara
+34 - Ederoclite, Alessandro
+35 - Ferreira Alberice, Vincenzo Sivero
+36 - Huaynasi, Fredi Quispe
+37 - Jacob Perin, Gabriel
+38 - Jaque Arancibia, Marcelo
+39 - Krabbe, Angela
+40 - Lima-Dias, Ciria
+41 - Lomelí-Núñez, Luis
+42 - Lopes de Oliveira, Raimundo
+43 - Luiz Figueiredo, André
+44 - Lösch, Elismar
+45 - Navarete, Felipe
+46 - Oliveira, Julia Mello de
+47 - Placco, Vinicius M.
+48 - Roig, Fernando V.
+49 - Rubet, Mariana
+50 - Santos, André
+51 - Torres-Flores, Sergio
+52 - Beers, Timothy
+53 - Alvarez-Candal, Alvaro
+54 - Stavros, Akras
+55 - Panda, Swayamtrupa
+56 - Limberg, Guilherme
+57 - Pardo Montaguth, Gissel Dayana
+58 - Ribeiro, Tiago
+59 - Mendes de Oliveira, Claudia
