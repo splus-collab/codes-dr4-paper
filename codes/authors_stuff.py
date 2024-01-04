@@ -41,7 +41,7 @@ def prepare_authors_files(args, authors_json, authors):
                 institutions.append(institution)
 
     a = open(os.path.join(args.workdir,
-             f'extras/{args.authors.split("/")[-1].strip(".json")}.txt'), 'w')
+             f'extras/{args.authors.split("/")[-1].strip(".json")}_names_order.txt'), 'w')
     with open(os.path.join(args.workdir, f'extras/{args.authors.split("/")[-1].strip(".json")}.tex'), 'w') as f:
         f.write('\\author{')
         i = 1
