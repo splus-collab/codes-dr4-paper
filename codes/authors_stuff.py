@@ -24,8 +24,10 @@ def get_authors_list(args):
 
     authors = authors_json['authors']
 
+    # authors = sorted(authors.items(), key=lambda x: (
+    #     x[1].get('position', 99), x[1]['fullname']))
     authors = sorted(authors.items(), key=lambda x: (
-        x[1].get('position', 99), x[1]['fullname']))
+        x[1]['position'], x[1]['fullname']))
 
     return authors_json, authors
 
@@ -38,12 +40,15 @@ def prepare_authors_files(args, authors_json, authors):
             if institution not in institutions:
                 institutions.append(institution)
 
-    a = open(os.path.join(args.workdir, 'extras/authors.txt'), 'w')
-    with open(os.path.join(args.workdir, 'extras/authors.tex'), 'w') as f:
+    a = open(os.path.join(args.workdir,
+             f'extras/{args.authors.split("/")[-1].strip(".json")}.txt'), 'w')
+    with open(os.path.join(args.workdir, f'extras/{args.authors.split("/")[-1].strip(".json")}.tex'), 'w') as f:
         f.write('\\author{')
         i = 1
+        listemails = []
         for author in authors:
             a.write('%i - %s\n' % (i, author[1]['fullname']))
+            listemails.append(f'<{author[1]["email"]}>')
             i += 1
             if author is authors[-1]:
                 endofline = '\n'
@@ -98,6 +103,9 @@ def prepare_authors_files(args, authors_json, authors):
                      authors_json['institutions'][institution]['postcode'],
                      authors_json['institutions'][institution]['country']))
 
+    a.write('\n\n')
+    for author_email in listemails:
+        a.write(f'{author_email}, ')
     a.close()
 
 

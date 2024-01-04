@@ -1,0 +1,22 @@
+{
+    "authors": {
+        "Herpich, F. R.": {
+            "fullname": "Herpich, Fabio R.",
+            "email": "frh28@cam.ac.uk",
+            "position": 1,
+            "institutions": ["ioacam"],
+            "orcid": "0000-0001-7907-7884",
+            "acknowledgements": "F.R.H. acknowledges support from FAPESP grants 2018/21661-9 and 2021/11345-5."
+        }
+    },
+    "institutions": {
+        "ioacam": {
+            "name": "Cambridge Survey Astronomical Unit (CASU), Insitute of Astronomy, University of Cambridge",
+            "addressline": "Madingley Road",
+            "city": "Cambridge",
+            "postcode": "CB3 0HA",
+            "state": "Cambridgeshire",
+            "country": "GB"
+        }
+    }
+}
