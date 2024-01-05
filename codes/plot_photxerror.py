@@ -8,6 +8,7 @@ import pandas as pd
 import dask.dataframe as dd
 import itertools
 import multiprocessing as mp
+import numpy as np
 
 os.environ["DASK_MEMORY_LIMIT"] = "32G"
 
@@ -126,11 +127,11 @@ def plot_photometry(workdir, modes, filters, args):
         mask &= (df['e_mag'] > 0) & (df['e_mag'] < 10.9)
         if m in ['dual_auto', 'dual_PStotal', 'single_auto']:
             mask &= df['SEX_FLAGS'] == 0
-        completeness = len(df[mask]) / len(df)
+        # completeness = len(df[mask]) / len(df)
         xlims = [10.1, 26.9]
-        ylims = [-0.5, 10.9]
+        ylims = [-0.1, 1.9]
         xticks = [12, 16, 20, 24]
-        yticks = [1, 3, 5, 7, 9]
+        yticks = np.linspace(min(ylims) + 0.2, max(ylims) - 0.2, 5)
 
         df = df[mask]
         df = df.sort_values(by='mag')
@@ -157,8 +158,10 @@ def plot_photometry(workdir, modes, filters, args):
                 ax[i].text(mag_intersect+0.1, 0.05, r'$\mathrm{%.2f}$' %
                            mag_intersect, fontsize=6)
             else:
-                ax[i].text(mag_intersect+0.1, 9, r'$\mathrm{%.2f}$' %
-                           mag_intersect, fontsize=6)
+                # ax[i].text(mag_intersect+0.1, 9, r'$\mathrm{%.2f}$' %
+                #            mag_intersect, fontsize=6)
+                ax[i].text(mag_intersect - 2.5, max(ylims) - 0.3,
+                           r'$\mathrm{%.2f}$' % mag_intersect, fontsize=6)
 
         if i in [44, 45, 46, 47]:
             ax[i].set_xlabel(r'$\mathrm{Mag}$', fontsize=12)
@@ -191,7 +194,7 @@ def plot_photometry(workdir, modes, filters, args):
 
         ax[i].grid(alpha=0.5)
         bbox_props = dict(boxstyle="round", fc="w", ec="0.5", alpha=0.9)
-        ax[i].text(0.05, 0.9, r'%i (%.3f)' % (len(df), completeness),
+        ax[i].text(0.05, 0.9, r'%i' % len(df),
                    transform=ax[i].transAxes,
                    fontsize=6, verticalalignment='top', bbox=bbox_props)
 
