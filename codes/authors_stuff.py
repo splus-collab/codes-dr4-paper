@@ -10,33 +10,45 @@ def parse_args():
         description='Create authors.tex file from list_authors.json')
     parser.add_argument('--workdir', type=str, default=os.getcwd(),
                         help='Working directory. Default: current directory')
+    parser.add_argument('--authors', type=str, default='config/list_authors.json',
+                        help='Authors file. Default: config/list_authors.json')
+
     args = parser.parse_args()
     return args
 
 
-if __name__ == '__main__':
-    args = parse_args()
-    os.chdir(args.workdir)
+def get_authors_list(args):
+    """Get authors list from list_authors.json file"""
     authors_json = json.load(
-        open(os.path.join(args.workdir, 'config/list_authors.json'), 'r'))
+        open(os.path.join(args.workdir, args.authors), 'r'))
 
     authors = authors_json['authors']
 
+    # authors = sorted(authors.items(), key=lambda x: (
+    #     x[1].get('position', 99), x[1]['fullname']))
     authors = sorted(authors.items(), key=lambda x: (
-        x[1].get('position', 99), x[1]['fullname']))
+        x[1]['position'], x[1]['fullname']))
 
+    return authors_json, authors
+
+
+def prepare_authors_files(args, authors_json, authors):
+    """Prepare authors.txt and authors.tex files"""
     institutions = []
     for author in authors:
         for institution in author[1]['institutions']:
             if institution not in institutions:
                 institutions.append(institution)
 
-    a = open(os.path.join(args.workdir, 'extras/authors.txt'), 'w')
-    with open(os.path.join(args.workdir, 'extras/authors.tex'), 'w') as f:
+    a = open(os.path.join(args.workdir,
+             f'extras/{args.authors.split("/")[-1].strip(".json")}_names_order.txt'), 'w')
+    with open(os.path.join(args.workdir, f'extras/{args.authors.split("/")[-1].strip(".json")}.tex'), 'w') as f:
         f.write('\\author{')
         i = 1
+        listemails = []
         for author in authors:
             a.write('%i - %s\n' % (i, author[1]['fullname']))
+            listemails.append(f'<{author[1]["email"]}>')
             i += 1
             if author is authors[-1]:
                 endofline = '\n'
@@ -91,4 +103,21 @@ if __name__ == '__main__':
                      authors_json['institutions'][institution]['postcode'],
                      authors_json['institutions'][institution]['country']))
 
+    a.write('\n\n')
+    for author_email in listemails:
+        a.write(f'{author_email}, ')
     a.close()
+
+
+def main():
+    args = parse_args()
+
+    authors_json, authors = get_authors_list(args)
+
+    prepare_authors_files(args, authors_json, authors)
+
+    return
+
+
+if __name__ == '__main__':
+    main()
