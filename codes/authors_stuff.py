@@ -8,10 +8,13 @@ import os
 def parse_args():
     parser = argparse.ArgumentParser(
         description='Create authors.tex file from list_authors.json')
-    parser.add_argument('--workdir', type=str, default=os.getcwd(),
-                        help='Working directory. Default: current directory')
-    parser.add_argument('--authors', type=str, default='config/list_authors.json',
-                        help='Authors file. Default: config/list_authors.json')
+    parser.add_argument('--workdir', type=str,
+                        default=os.path.dirname(os.path.realpath(__file__)),
+                        help='Working directory. Default: script location')
+    parser.add_argument('--authors', type=str,
+                        default=os.path.join(os.path.dirname(
+                            os.path.realpath(__file__)), 'config/list_authors.json'),
+                        help='List of authors file. Default: {workdir}/config/list_authors.json')
 
     args = parser.parse_args()
     return args
@@ -19,8 +22,7 @@ def parse_args():
 
 def get_authors_list(args):
     """Get authors list from list_authors.json file"""
-    authors_json = json.load(
-        open(os.path.join(args.workdir, args.authors), 'r'))
+    authors_json = json.load(open(args.authors, 'r'))
 
     authors = authors_json['authors']
 
