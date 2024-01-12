@@ -26,8 +26,6 @@ def get_authors_list(args):
 
     authors = authors_json['authors']
 
-    # authors = sorted(authors.items(), key=lambda x: (
-    #     x[1].get('position', 99), x[1]['fullname']))
     authors = sorted(authors.items(), key=lambda x: (
         x[1]['position'], x[1]['fullname']))
 
@@ -45,9 +43,12 @@ def prepare_authors_files(args, authors_json, authors):
     a = open(os.path.join(args.workdir,
              f'extras/{args.authors.split("/")[-1].strip(".json")}_names_order.txt'), 'w')
     a.write("# List of authors numbered in the order they will appear in the paper.\n")
-    a.write("# After the list a single text line containg all emails in the format required by the mail engines.\n\n")
+    a.write(" ".join(["# After the list a single text line containg all",
+            "emails in the format required by the mail engines.\n\n"]))
 
-    with open(os.path.join(args.workdir, f'extras/{args.authors.split("/")[-1].strip(".json")}.tex'), 'w') as f:
+    texpath = os.path.join(
+        args.workdir, f'extras/{args.authors.split("/")[-1].strip(".json")}.tex')
+    with open(texpath, 'w') as f:
         f.write(
             '# This document contains the information regardgin authorship for A&A standards.\n\n')
         f.write(
@@ -103,7 +104,9 @@ def prepare_authors_files(args, authors_json, authors):
         f.write('\n')
         f.write('\n')
 
-        f.write("# list of authors' institutions in case the numbers of authors is too big and the institutions need to be moved to a appendix.\n")
+        f.write(' '.join(["# list of authors' institutions in case the",
+                          "numbers of authors is too big and the institutions",
+                          "need to be moved to a appendix.\n"]))
         f.write("Copy the text below and place directly at the LaTex file.\n\n")
         f.write('\\section{Authors Affiliations}\\label{ap:affiliations}\n')
         for institution in institutions:
