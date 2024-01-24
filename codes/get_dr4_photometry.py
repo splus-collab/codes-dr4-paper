@@ -21,6 +21,8 @@ def load_args():
     parser.add_argument('--ncores', type=int,
                         help='Number of cores to use. Default: 1.',
                         default=1)
+    parser.add_argument('--clobber', action='store_true',
+                        help='Overwrite existing files.')
 
     args = parser.parse_args()
     return args
@@ -56,7 +58,10 @@ def get_dr4_photometry(field, sfilter='r', mode='dual_auto', save=True, output='
     elif mode[0] in ['single', 'psf']:
         columns = f"RA_{sfilter},DEC_{sfilter}"
 
-    query = f"SELECT {columns},{sfilter}_{mode[1]},e_{sfilter}_{mode[1]} FROM idr4_{mode[0]}.idr4_{mode[0]}_{sfilter} WHERE Field='{field}'"
+    if mode[0] in ['pdf']:
+        query = f"SELECT {columns},{sfilter}_{mode[1]},e_{sfilter}_{mode[1]} FROM idr4_{mode[0]}.idr4_{mode[0]}_{sfilter} WHERE Field='{field}'"
+    else:
+        query = f"SELECT {columns},{sfilter}_{mode[1]},e_{sfilter}_{mode[1]},SEX_FLAGS_{sfilter} FROM idr4_{mode[0]}.idr4_{mode[0]}_{sfilter} WHERE Field='{field}'"
     print('Querying the database...')
     try:
         data = conn.query(query)
@@ -103,10 +108,10 @@ def get_user_credentials():
 
 
 def process_field(args):
-    field, mode, workdir, filters, save = args
+    field, mode, workdir, filters, save, clobber = args
     for f in filters:
         output = os.path.join(workdir, mode, f'{field}_{f}.csv')
-        if os.path.exists(output):
+        if os.path.exists(output) and not clobber:
             print(f'{output} already exists.')
             continue
         else:
@@ -115,7 +120,7 @@ def process_field(args):
                 field, sfilter=f, mode=mode, save=save, output=output)
 
 
-def main_run(fields, filters, workdir='./', modes=['dual_auto'], save=True, ncores=1):
+def main_run(fields, filters, workdir='./', modes=['dual_auto'], save=True, ncores=1, clobber=False):
     """
     Get the photometry of a list of fields and filters from the DR4.
     Parameters
@@ -136,7 +141,7 @@ def main_run(fields, filters, workdir='./', modes=['dual_auto'], save=True, ncor
             os.makedirs(os.path.join(workdir, mode))
 
     pool = mp.Pool(processes=ncores)
-    field_args = [(field, mode, workdir, filters, save)
+    field_args = [(field, mode, workdir, filters, save, clobber)
                   for field in fields['Field'] for mode in modes]
     pool.map(process_field, field_args)
     pool.close()
@@ -148,11 +153,11 @@ if __name__ == '__main__':
     workdir = args.work_dir
     fields_list = args.fields_list
     ncores = args.ncores
-    import pdb
-    pdb.set_trace()
+    clobber = args.clobber
     fields = pd.read_csv(os.path.join(workdir, fields_list))
     filters = ['u', 'j0378', 'j0395', 'j0410', 'j0430',
                'g', 'j0515', 'r', 'j0660', 'i', 'j0861', 'z']
-    modes = ['single_auto', 'dual_auto', 'dual_PStotal', 'psf_psf']
+    # modes = ['single_auto', 'dual_auto', 'dual_PStotal', 'psf_psf']
+    modes = ['single_auto', 'dual_auto', 'dual_PStotal']
     main_run(fields, filters, workdir=workdir,
-             modes=modes, save=True, ncores=ncores)
+             modes=modes, save=True, ncores=ncores, clobber=clobber)
