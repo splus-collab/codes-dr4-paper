@@ -10,13 +10,12 @@ if str(Path.cwd().parent) not in sys.path:
 
 import numpy as np
 import matplotlib.pyplot as plt
-from astropy.table import Table, hstack, join, unique, vstack, Column
+from astropy.table import Table
 import pandas as pd
 import seaborn as sns
 import matplotlib as mpl
 
 pd.set_option('display.max_columns', None)
-from matplotlib import rc
 plt.rcParams["font.family"] = "serif"
 plt.rcParams["mathtext.fontset"] = "dejavuserif"
 plt.rcParams["figure.figsize"] = (15,11)
@@ -25,10 +24,12 @@ plt.rcParams["xtick.direction"] = "in"
 plt.rcParams["ytick.direction"] = "in"
 plt.rcParams["xtick.minor.visible"] = True
 plt.rcParams["ytick.minor.visible"] = True
-plt.rcParams["xtick.labelsize"] = 13
-plt.rcParams["ytick.labelsize"] = 13
+plt.rcParams["xtick.labelsize"] = 20
+plt.rcParams["ytick.labelsize"] = 20
 mpl.rcParams.update({'font.size': 16, 'font.family': 'STIXGeneral', 'mathtext.fontset': 'stix'})
 mpl.rcParams['axes.linewidth'] = 1.0
+
+plt.rcParams['legend.fontsize'] = 20
 
 colors = {
     'i': (193,5,0),
@@ -50,7 +51,7 @@ colors = {
 
 psf = Table.read('../data/detections_in_bands_psf.csv')
 single = Table.read('../data/detections_in_bands_single.csv')
-dual = Table.read('../data/detections_in_bands.csv')
+dual = Table.read('../data/detections_dual_petro.csv')
 
 # make 4x3 grid using gridspec
 
@@ -80,8 +81,9 @@ for i,band in enumerate(['u','J0378','J0395','J0410','J0430','g','J0515','r','J0
     ax_list[i].plot(range(14,24), band2r_dual, label='dual', color=np.array(colors[band])/255, lw=2, ls='-', marker='o', markersize=6)
     ax_list[i].plot(range(14,24), band2r_single, label="single", color=np.array(colors[band])/255, ls=':', lw=2, marker='^', markersize=6)
     ax_list[i].plot(range(14,24), band2r_psf, label="psf", color=np.array(colors[band])/255, ls='--', lw=2, marker='s', markersize=6)
+    ax_list[i].legend(fontsize=20)
 
-        # ax_list[i].plot(range(14,24), band2r_field, label=[band+"_dual", band+"_single", band+"_psf"], color=np.array(colors[band])/255, lw=3, ls='-.', marker='s', markersize=8)
+    # ax_list[i].plot(range(14,24), band2r_field, label=[band+"_dual", band+"_single", band+"_psf"], color=np.array(colors[band])/255, lw=3, ls='-.', marker='s', markersize=8)
 
     # ax_list[i].set_ylabel('completeness')
     # ax_list[i].set_xlabel('R')
@@ -90,7 +92,7 @@ for i,band in enumerate(['u','J0378','J0395','J0410','J0430','g','J0515','r','J0
         ax_list[i].set_ylabel('completeness', fontsize=22)
     
     if i >= 8:
-        ax_list[i].set_xlabel('r (auto)', fontsize=22)
+        ax_list[i].set_xlabel('r (petro)', fontsize=22)
     
     ax_list[i].text(14.5,0.5,band, fontsize=18)
     ax_list[i].legend(loc='lower left', ncol=1, frameon=False, fontsize=14)
@@ -104,5 +106,5 @@ for i,band in enumerate(['u','J0378','J0395','J0410','J0430','g','J0515','r','J0
     ax_list[i].tick_params(axis='y', labelsize=14)  # Set y-ticks font size
 
 
-plt.savefig('../plots/completeness.png', dpi=100)
+plt.savefig('../plots/completeness.png', dpi=300)
 plt.close()
