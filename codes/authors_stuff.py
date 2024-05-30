@@ -11,9 +11,10 @@ def parse_args():
     parser.add_argument('--workdir', type=str,
                         default=os.path.dirname(os.path.realpath(__file__)),
                         help='Working directory. Default: script location')
+    workdir, _ = parser.parse_known_args()
     parser.add_argument('--authors', type=str,
-                        default=os.path.join(os.path.dirname(
-                            os.path.realpath(__file__)), 'config/list_authors.json'),
+                        default=os.path.join(
+                            workdir.workdir, 'config/list_authors.json'),
                         help='List of authors file. Default: {workdir}/config/list_authors.json')
 
     args = parser.parse_args()
@@ -41,7 +42,7 @@ def prepare_authors_files(args, authors_json, authors):
                 institutions.append(institution)
 
     a = open(os.path.join(args.workdir,
-             f'extras/{args.authors.split("/")[-1].strip(".json")}_names_order.txt'), 'w')
+                          f'extras/{args.authors.split("/")[-1].strip(".json")}_names_order.txt'), 'w')
     a.write("# List of authors numbered in the order they will appear in the paper.\n")
     a.write(" ".join(["# After the list a single text line containg all",
             "emails in the format required by the mail engines.\n\n"]))
