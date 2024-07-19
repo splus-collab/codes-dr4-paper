@@ -18,6 +18,12 @@ def load_args():
     parser.add_argument('--fields_list', type=str,
                         help='List of fields to get the photometry.',
                         default='DR4_pointings.csv')
+    parser.add_argument('--filters', type=str,
+                        help='Filters to get the photometry. Default: all.',
+                        default='all')
+    parser.add_argument('--modes', type=str,
+                        help='Modes to get the photometry. Default: all.',
+                        default='all')
     parser.add_argument('--ncores', type=int,
                         help='Number of cores to use. Default: 1.',
                         default=1)
@@ -58,7 +64,7 @@ def get_dr4_photometry(field, sfilter='r', mode='dual_auto', save=True, output='
     elif mode[0] in ['single', 'psf']:
         columns = f"RA_{sfilter},DEC_{sfilter}"
 
-    if mode[0] in ['pdf']:
+    if mode[0] in ['psf']:
         query = f"SELECT {columns},{sfilter}_{mode[1]},e_{sfilter}_{mode[1]} FROM idr4_{mode[0]}.idr4_{mode[0]}_{sfilter} WHERE Field='{field}'"
     else:
         query = f"SELECT {columns},{sfilter}_{mode[1]},e_{sfilter}_{mode[1]},SEX_FLAGS_{sfilter} FROM idr4_{mode[0]}.idr4_{mode[0]}_{sfilter} WHERE Field='{field}'"
@@ -155,9 +161,16 @@ if __name__ == '__main__':
     ncores = args.ncores
     clobber = args.clobber
     fields = pd.read_csv(os.path.join(workdir, fields_list))
-    filters = ['u', 'j0378', 'j0395', 'j0410', 'j0430',
-               'g', 'j0515', 'r', 'j0660', 'i', 'j0861', 'z']
+    if args.filters == 'all':
+        filters = ['u', 'j0378', 'j0395', 'j0410', 'j0430',
+                   'g', 'j0515', 'r', 'j0660', 'i', 'j0861', 'z']
+    else:
+        filters = args.filters.split(',')
+    if args.modes == 'all':
+        modes = ['single_auto', 'dual_auto', 'dual_PStotal', 'psf_psf']
+    else:
+        modes = args.modes.split(',')
     # modes = ['single_auto', 'dual_auto', 'dual_PStotal', 'psf_psf']
-    modes = ['single_auto', 'dual_auto', 'dual_PStotal']
+    # modes = ['single_auto', 'dual_auto', 'dual_PStotal']
     main_run(fields, filters, workdir=workdir,
              modes=modes, save=True, ncores=ncores, clobber=clobber)
