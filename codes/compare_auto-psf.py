@@ -29,7 +29,7 @@ def get_args():
     parser.add_argument('--stamp_name', type=str,
                         help='Name of the stamp', default='stamp.fits')
     parser.add_argument('--field', type=str,
-                        help='Photometry file', default='photometry.csv')
+                        help='Field to query', default='STRIPE82-0119')
     parser.add_argument('--saveplot', action='store_true',
                         help='Save plot to file')
 
@@ -86,10 +86,33 @@ def get_splus_stamp(args):
 
 
 def get_auto_photometry(args):
-    dfautor = pd.read_csv(os.path.join(
-        args.workdir, f'dual_PStotal/{args.field}_r.csv'))
-    dfautoi = pd.read_csv(os.path.join(
-        args.workdir, f'dual_PStotal/{args.field}_i.csv'))
+    _r_auto_file = os.path.join(args.workdir, f'{args.field}_r_auto.csv')
+    _i_auto_file = os.path.join(args.workdir, f'{args.field}_i_auto.csv')
+    if not os.path.isfile(_r_auto_file) or not os.path.isfile(_i_auto_file):
+        user, pswd = get_user_credentials()
+        conn = splusdata.Core(user, pswd)
+    if os.path.isfile(_r_auto_file):
+        print(f'Reading {args.field} r-band photometry from {_r_auto_file}')
+        dfautor = pd.read_csv(_r_auto_file)
+    else:
+        print('Querying S-PLUS database for filter r...')
+        dfautor = conn.query(
+            f"SELECT * FROM idr4_dual.idr4_dual_r WHERE Field='{args.field}'")
+        print(f"Saving {len(dfautor)} objects to {args.workdir}/{_r_auto_file}")
+        dfautor = dfautor.to_pandas()
+        dfautor.to_csv(_r_auto_file, index=False)
+    if os.path.isfile(_i_auto_file):
+        print(f'Reading {args.field} i-band photometry from {_i_auto_file}')
+        dfautoi = pd.read_csv(_i_auto_file)
+    else:
+        print('Querying S-PLUS database for filter i...')
+        user, pswd = get_user_credentials()
+        conn = splusdata.Core(user, pswd)
+        dfautoi = conn.query(
+            f"SELECT * FROM idr4_dual.idr4_dual_i WHERE Field='{args.field}'")
+        print(f"Saving {len(dfautoi)} objects to {args.workdir}/{_i_auto_file}")
+        dfautoi = dfautoi.to_pandas()
+        dfautoi.to_csv(_i_auto_file, index=False)
 
     mask = (dfautor['r_PStotal'] > 0) & (dfautoi['i_PStotal'] > 0)
     mask &= (dfautor['r_PStotal'] < 30) & (dfautoi['i_PStotal'] < 30)
@@ -102,10 +125,31 @@ def get_auto_photometry(args):
 
 
 def get_psf_photometry(args):
-    dfpsfr = pd.read_csv(os.path.join(
-        args.workdir, f'psf_psf/{args.field}_r.csv'))
-    dfpsfi = pd.read_csv(os.path.join(
-        args.workdir, f'psf_psf/{args.field}_i.csv'))
+    _r_psf_file = os.path.join(args.workdir, f'{args.field}_r_psf.csv')
+    _i_psf_file = os.path.join(args.workdir, f'{args.field}_i_psf.csv')
+    if not os.path.isfile(_r_psf_file) or not os.path.isfile(_i_psf_file):
+        user, pswd = get_user_credentials()
+        conn = splusdata.Core(user, pswd)
+    if os.path.isfile(_r_psf_file):
+        print(f'Reading {args.field} r-band photometry from {_r_psf_file}')
+        dfpsfr = pd.read_csv(_r_psf_file)
+    else:
+        print('Querying S-PLUS database for filter r_psf...')
+        dfpsfr = conn.query(
+            f"SELECT * FROM idr4_psf.idr4_psf_r WHERE Field='{args.field}'")
+        print(f"Saving {len(dfpsfr)} objects to {_r_psf_file}")
+        dfpsfr = dfpsfr.to_pandas()
+        dfpsfr.to_csv(_r_psf_file, index=False)
+    if os.path.isfile(_i_psf_file):
+        print(f'Reading {args.field} i-band photometry from {_i_psf_file}')
+        dfpsfi = pd.read_csv(_i_psf_file)
+    else:
+        print('Querying S-PLUS database for filter i_psf...')
+        dfpsfi = conn.query(
+            f"SELECT * FROM idr4_psf.idr4_psf_i WHERE Field='{args.field}'")
+        print(f"Saving {len(dfpsfi)} objects to {_i_psf_file}")
+        dfpsfi = dfpsfi.to_pandas()
+        dfpsfi.to_csv(_i_psf_file, index=False)
 
     coords_r = SkyCoord(ra=dfpsfr['RA_r'],
                         dec=dfpsfr['DEC_r'], unit=('deg', 'deg'))
@@ -299,7 +343,7 @@ def plot_photometry(args):
     ax2.legend(loc='upper left')
 
     ax3 = plt.subplot(gs[2])
-    ax3.grid()
+    # ax3.grid()
     ax3.scatter(dfauto['r_PStotal'][maskflags] - dfauto['i_PStotal'][maskflags],
                 dfauto['r_PStotal'][maskflags], s=1, c='gray', alpha=0.25)
     ax3.scatter(matched_m2_auto['r_PStotal'][mask_auto] - matched_m2_auto['i_PStotal'][mask_auto],
@@ -311,7 +355,7 @@ def plot_photometry(args):
     ax3.tick_params(labelsize=ticksizes)
 
     ax4 = plt.subplot(gs[3])
-    ax4.grid()
+    # ax4.grid()
     ax4.scatter(dfpsf['r_psf'][maskpsf] - dfpsf['i_psf'][maskpsf],
                 dfpsf['r_psf'][maskpsf], s=1, c='grey', alpha=0.25)
     ax4.scatter(matched_m2_psf['r_psf'][mask_psf] - matched_m2_psf['i_psf'][mask_psf],
